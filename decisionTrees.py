@@ -114,14 +114,16 @@ def loadAndPrepareVotingDataSet():
     #replace all missing data "?" with the element that happens the most in
     #the column either "y" or "n"
     col = data.columns
-    #len(col)-1 because we don't want to include the last column which is the target
+    #len(col)-1 because we don't want to include the last column 
+    #which is the target
     for i in range(len(col)-1):
         x = data[col[i]].describe()
         data.loc[(data[col[i]] == "?"), col[i]] = x.top
     print('raw data:\n',data)
     return data
 """
-@param data in general, column to separate results, "string" name of the column to be processed
+@param data in general, column to separate results, "string" name of 
+the column to be processed
 """
 def separate(data, column, targetColumn):
     listOfOptions = {}
@@ -205,7 +207,11 @@ def determineLeaf(leafDictionary):
 """
 ID3 algorithm
 """
-"""data comes in in the node array [newData, minBranch, entropy score, name of column, leafDictionary]"""
+"""data comes in in the node array [newData, 
+                                    minBranch, 
+                                    entropy score, 
+                                    name of column, 
+                                    leafDictionary]"""
 def id3(node):
     #print("\nNode Debug:",node.data[0].keys()," minBranch:",node.data[1]," entroypy:",node.data[2]," column to target:",node.data[3]," result:",node.data[4].keys())
     for key in node.data[0]:

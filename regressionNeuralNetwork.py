@@ -98,7 +98,7 @@ def main():
     # create a history object to see how well we do
     history = model.fit(
                 train_data, train_targets,
-                epochs = 100, validation_split=0.2, verbose=0,
+                epochs = 500, validation_split=0.2, verbose=0,
                 callbacks=[early_stop, PrintDot()]
             )
     #check our results from the history object

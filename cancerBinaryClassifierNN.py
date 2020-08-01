@@ -113,7 +113,7 @@ def main():
     classifier.add(Dense(units=1, activation = 'sigmoid'))
     #loss function and optimizer
     classifier.compile(optimizer= 'rmsprop', loss= 'binary_crossentropy')
-    classifier.fit(train_data, train_targets, batch_size=1, epochs=100)
+    classifier.fit(train_data, train_targets, batch_size=1, epochs=500)
     # predict
     results = classifier.predict(test_data)
     #normalize results
